@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <style>
+    .prediction-text {
+      font-weight: bold;
+      color: #333; 
+    }
+  
+    .probability-text {
+      color: #555; 
+    }
+  
+    .untrained-text {
+      color: #999; 
+    }
+  </style>
+  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestoGram</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .teclado-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 18px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body class="text-center">
+
+    <div style="display: none;">
+        <img id="img" crossorigin src="https://picsum.photos/200/300?random=3243" width="227" height="227"/>
+        <div id="descripcion_imagen"></div>
+        <button id="cambiaImagen" class="btn btn-primary mt-2" onclick="cambiarImagen();">Cambiar imagen</button>
+    </div>
+
+    <br>
+    <h1> GestoGram</h1>
+    <video autoplay playsinline muted id="webcam" width="400" height="224"></video>
+    <div style="display: none;" id="console"></div><br>
+    <div id="console2"></div><br>
+
+    <p>INSTRUCCIONES</p>
+<p>Realiza la señal con tu mano frente a la cámara y luego selecciona la letra correspondiente presionando el botón para guardarla.</p>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <button class="btn btn-info teclado-btn" onclick="addExample(1)">A</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(2)">B</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(3)">C</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(4)">D</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(5)">E</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(6)">F</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(7)">G</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(8)">H</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(9)">I</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(10)">J</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(11)">K</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(12)">L</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(13)">M</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(14)">N</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(15)">O</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(16)">P</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(17)">Q</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(18)">R</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(19)">S</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(20)">T</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(21)">U</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(22)">V</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(23)">W</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(24)">X</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(25)">Y</button>
+            <button class="btn btn-info teclado-btn" onclick="addExample(26)">Z</button>
+        </div>
+    </div>
+
+    <br>
+  
+    <button id="saveKnn" class="btn btn-success mt-2" onclick="saveKnn();">Almacenar configuración</button>
+    <button id="loadKnn" class="btn btn-warning mt-2" onclick="loadKnn();">Recuperar configuración</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+    <script src="script.js?v=151"></script>
+
+</body>
+</html>
